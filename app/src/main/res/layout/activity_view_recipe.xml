@@ -7,20 +7,18 @@
     tools:context=".ViewRecipeActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cart_list_view"
+        android:id="@+id/recipe_ingredients_recycler_view"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="10dp"
         android:background="#DCDCDC"
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/recipe_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recipe_name"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_name_full"
         tools:itemCount="2"
         tools:listitem="@layout/ingredient_item" />
 
@@ -44,11 +42,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:scrollbars="vertical"
         android:text="@string/textview"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/add_to_favorite_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_ingredients_recycler_view"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/add_to_favorite_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/add_to_favorites"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

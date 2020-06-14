@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements CartRecycleViewAd
             public void onClick(View v) {
                 //Handle transition to recipes
                 Intent recipeIntent = new Intent(MainActivity.this, RecipeActivity.class);
+                recipeIntent.putExtra("favorites", false);
                 MainActivity.this.startActivity(recipeIntent);
             }
         });
@@ -51,7 +52,9 @@ public class MainActivity extends AppCompatActivity implements CartRecycleViewAd
             @Override
             public void onClick(View v) {
                 //Handle transition to favorite recipes
-
+                Intent recipeIntent = new Intent(MainActivity.this, RecipeActivity.class);
+                recipeIntent.putExtra("favorites", true);
+                MainActivity.this.startActivity(recipeIntent);
             }
         });
     }
@@ -75,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements CartRecycleViewAd
     @Override
     public void onItemClick(View view, int position) {
         if (Cart.RemoveIngredient(Cart.selectedIngredients.get(position))) {
-            Toast.makeText(this, "Remover ingredient!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Removed ingredient!", Toast.LENGTH_LONG).show();
 
             RecyclerView recyclerView = findViewById(R.id.cart_list_view);
             adapter = new CartRecycleViewAdapter(this, Cart.selectedIngredients);

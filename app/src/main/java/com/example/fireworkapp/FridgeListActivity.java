@@ -21,6 +21,7 @@ public class FridgeListActivity extends AppCompatActivity implements FridgeListR
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frige_list);
 
+        /* Disabled untill saving is fixed
         Button addIngredientButton = (Button) findViewById(R.id.add_ingredient_button);
         addIngredientButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +32,7 @@ public class FridgeListActivity extends AppCompatActivity implements FridgeListR
                 FridgeListActivity.this.startActivity(newItemIntent);
             }
         });
+         */
     }
 
     @Override

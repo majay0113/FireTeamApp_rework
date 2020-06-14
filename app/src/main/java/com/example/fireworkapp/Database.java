@@ -94,17 +94,25 @@ public class Database {
                 JSONObject item = recipes.getJSONObject(i);
                 String name = item.getString("name");
 
-                JSONArray ids = item.getJSONArray("ingredientIds");
+                JSONArray ids = item.optJSONArray("ingredientIds");
                 Ingredient[] ingredients = new Ingredient[ids.length()];
-                for (int j = 0; j < ids.length(); j++){
-                    Log.i("database", "getting ingredient: " + ids.opt(i));
-                    ingredients[i] = Ingredient.GetIngredientById(ids.optInt(i));
+                for (int j = 0; j < ids.length(); j++) {
+                    Log.i("database", "getting ingredient: " + ids.getInt(j));
+                    ingredients[j] = Ingredient.GetIngredientById(ids.getInt(j));
                 }
 
                 String description = item.getString("description");
+                boolean isFavorited = false;
+                try {
+                    isFavorited = item.getBoolean("isFavorited");
+                } catch (Exception e) {
 
-                Recipe.knownRecipes.add(new Recipe(name, ingredients, description));
-                //Load recipe
+                }
+
+                Recipe recipe = new Recipe(name, ingredients, description);
+                Recipe.knownRecipes.add(recipe);
+                if (isFavorited)
+                    Recipe.favoriteRecipes.add(recipe);
             }
         } catch (Exception e) {
             Log.e("database", e.getMessage());

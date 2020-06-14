@@ -18,6 +18,7 @@ public class RecipeActivity extends AppCompatActivity implements RecipeRecycleVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
 
+        /* Disabled untill saving is fixed
         Button newRecipeButton = (Button) findViewById(R.id.add_new_recipe_button);
         newRecipeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +34,7 @@ public class RecipeActivity extends AppCompatActivity implements RecipeRecycleVi
                 recyclerView.addItemDecoration(dividerItemDecoration);
             }
         });
+         */
     }
 
     @Override
@@ -41,7 +43,8 @@ public class RecipeActivity extends AppCompatActivity implements RecipeRecycleVi
         super.onResume();
 
         RecyclerView recyclerView = findViewById(R.id.recipe_recycle_view_list);
-        adapter = new RecipeRecycleViewAdapter(this,  Cart.selectedIngredients.toArray(new Ingredient[Cart.selectedIngredients.size()]));
+        adapter = new RecipeRecycleViewAdapter(this, Cart.selectedIngredients.toArray(new Ingredient[Cart.selectedIngredients.size()]),
+                getIntent().getBooleanExtra("favorites", false));
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), ((LinearLayoutManager) recyclerView.getLayoutManager()).getOrientation());
@@ -51,7 +54,8 @@ public class RecipeActivity extends AppCompatActivity implements RecipeRecycleVi
     @Override
     public void onItemClick(View view, int position) {
         Intent recipeViewIntent = new Intent(RecipeActivity.this, ViewRecipeActivity.class);
-        Recipe res = Recipe.FilterRecipes(Cart.selectedIngredients.toArray(new Ingredient[Cart.selectedIngredients.size()])).get(position);
+        Recipe res = Recipe.FilterRecipes(Cart.selectedIngredients.toArray(new Ingredient[Cart.selectedIngredients.size()]),
+                getIntent().getBooleanExtra("favorites", false)).get(position);
         recipeViewIntent.putExtra("recipe", Recipe.knownRecipes.indexOf(res));
         RecipeActivity.this.startActivity(recipeViewIntent);
     }

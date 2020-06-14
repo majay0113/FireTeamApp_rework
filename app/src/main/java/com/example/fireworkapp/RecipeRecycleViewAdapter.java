@@ -19,11 +19,13 @@ public class RecipeRecycleViewAdapter extends RecyclerView.Adapter<RecipeRecycle
     private RecipeClickListener clickListener;
     private final Ingredient[] ingredients;
     private final ArrayList<Recipe> recipes;
+    private final boolean favorites;
 
-    RecipeRecycleViewAdapter(Context context, Ingredient[] ingredients) {
+    RecipeRecycleViewAdapter(Context context, Ingredient[] ingredients, boolean favorites) {
         this.ingredients = ingredients;
+        this.favorites = favorites;
         this.inflater = LayoutInflater.from(context);
-        this.recipes = Recipe.FilterRecipes(ingredients);
+        this.recipes = Recipe.FilterRecipes(ingredients, favorites);
     }
 
     @NonNull

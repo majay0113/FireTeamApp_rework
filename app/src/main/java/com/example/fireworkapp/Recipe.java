@@ -1,14 +1,18 @@
 package com.example.fireworkapp;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class Recipe {
     public static ArrayList<Recipe> knownRecipes;
+    public static ArrayList<Recipe> favoriteRecipes;
 
     static {
         knownRecipes = new ArrayList<>();
+        favoriteRecipes = new ArrayList<>();
     }
 
     public String name;
@@ -16,17 +20,37 @@ public class Recipe {
     public String description;
 
     public static ArrayList<Recipe> FilterRecipes(Ingredient[] ingredients) {
+        return FilterRecipes(ingredients, false);
+    }
+
+    public static ArrayList<Recipe> FilterRecipes(Ingredient[] ingredients, boolean inFavorites) {
         ArrayList<Recipe> result = new ArrayList<>();
+        Log.i("recipe", "got ingredients:");
+        for (Ingredient i : ingredients)
+            Log.i("recipe", "" + i.id);
 
-        for (Recipe recipe : knownRecipes) {
-            boolean fits = true;
-            for (Ingredient ingredient : ingredients) {
-                if (!recipe.RequiresIngredient(ingredient))
-                    fits = false;
+        if (!inFavorites) {
+            for (Recipe recipe : knownRecipes) {
+                boolean fits = true;
+                for (Ingredient ingredient : ingredients) {
+                    if (!recipe.RequiresIngredient(ingredient))
+                        fits = false;
+                }
+
+                if (fits || ingredients.length == 0)
+                    result.add(recipe);
             }
+        } else {
+            for (Recipe recipe : favoriteRecipes) {
+                boolean fits = true;
+                for (Ingredient ingredient : ingredients) {
+                    if (!recipe.RequiresIngredient(ingredient))
+                        fits = false;
+                }
 
-            if (fits || ingredients.length == 0)
-                result.add(recipe);
+                if (fits || ingredients.length == 0)
+                    result.add(recipe);
+            }
         }
 
         return result;
@@ -39,17 +63,26 @@ public class Recipe {
         this.ingredientIds = new int[ingredients.length];
         for (int i = 0; i < ingredients.length; i++)
             if (ingredients[i] != null)
-            ingredientIds[i] = ingredients[i].id;
+                ingredientIds[i] = ingredients[i].id;
     }
 
     public boolean RequiresIngredient(Ingredient ingredient) {
         boolean result = false;
+        Log.i("recipe", "checking recipe: " + this.name);
+
         for (int id : this.ingredientIds) {
-            if (id == ingredient.id)
+            Log.i("recipe", "checking " + id);
+            if (id == ingredient.id) {
                 result = true;
+                Log.i("recipe", "requires");
+            }
         }
 
         return result;
+    }
+
+    public boolean IsFavorited(){
+        return favoriteRecipes.contains(this);
     }
 
     public String ToJsonString() {
@@ -60,6 +93,7 @@ public class Recipe {
             result += "\t" + Integer.toString(id) + ",\n";
         }
         result += "\"description\": \"" + this.description + "\"\n";
+        result += "\"isFavorite\": \"" + Boolean.toString(this.IsFavorited()) + "\"\n";
         result += "},\n";
 
         return result;
