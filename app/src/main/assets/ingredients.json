@@ -1,0 +1,190 @@
+{
+    "ingredients": [
+        {
+            "id": 0,
+            "category": "meat",
+            "name": "Salmon fish",
+            "image": "fish.jpg"
+        },
+        {
+            "id": 1,
+            "category": "meat",
+            "name": "Beef",
+            "image": "beef.jpg"
+        },
+        {
+            "id": 2,
+            "category": "meat",
+            "name": "Ham",
+            "image": "bacon.jpg"
+        },
+        {
+            "id": 3,
+            "category": "meat",
+            "name": "Pork",
+            "image": "pork.jpg"
+        },
+        {
+            "id": 4,
+            "category": "meat",
+            "name": "Lamb",
+            "image": "lamb.jpg"
+        },
+        {
+            "id": 5,
+            "category": "meat",
+            "name": "Chicken",
+            "image": "chicken.jpg"
+        },
+        {
+            "id": 6,
+            "category": "meat",
+            "name": "Steak",
+            "image": "steak.jpg"
+        },
+        {
+            "id": 7,
+            "category": "meat",
+            "name": "Sausage",
+            "image": "sausage.jpg"
+        },
+        {
+            "id": 8,
+            "category": "meat",
+            "name": "Bacon",
+            "image": "bacon.jpg"
+        },
+        {
+            "id": 9,
+            "category": "meat",
+            "name": "Roll",
+            "image": "roll.jpg"
+        },
+        {
+            "id": 10,
+            "category": "vegetables",
+            "name": "Potato",
+            "image": "potato.png"
+        },
+        {
+            "id": 11,
+            "category": "vegetables",
+            "name": "Tomato",
+            "image": "tomato.jpg"
+        },
+        {
+            "id": 12,
+            "category": "vegetables",
+            "name": "Lettuce",
+            "image": "lettuce.jpg"
+        },
+        {
+            "id": 13,
+            "category": "vegetables",
+            "name": "Eggplant",
+            "image": "eggplant.jpg"
+        },
+        {
+            "id": 14,
+            "category": "vegetables",
+            "name": "Fennel",
+            "image": "fennel.jpg"
+        },
+        {
+            "id": 15,
+            "category": "vegetables",
+            "name": "Fiddlehead",
+            "image": "fiddlehead.jpg"
+        },
+        {
+            "id": 16,
+            "category": "vegetables",
+            "name": "Frisee",
+            "image": "frisee.jpg"
+        },
+        {
+            "id": 17,
+            "category": "vegetables",
+            "name": "Garlic",
+            "image": "garlic.jpg"
+        },
+        {
+            "id": 18,
+            "category": "vegetables",
+            "name": "Ginger",
+            "image": "ginger.jpg"
+        },
+        {
+            "id": 19,
+            "category": "vegetables",
+            "name": "Oinon",
+            "image": "onion.jpg"
+        },
+        {
+            "id": 20,
+            "category": "fruits",
+            "name": "Orange",
+            "image": "oranges.jpg"
+        },
+        {
+            "id": 21,
+            "category": "fruits",
+            "name": "Apple",
+            "image": "apple.jpg"
+        },
+        {
+            "id": 22,
+            "category": "fruits",
+            "name": "Bananas",
+            "image": "bananas.jpg"
+        },
+        {
+            "id": 23,
+            "category": "fruits",
+            "name": "Strawberry",
+            "image": "strawberry.jpg"
+        },
+        {
+            "id": 24,
+            "category": "fruits",
+            "name": "Coconut",
+            "image": "coconut.jpg"
+        },
+        {
+            "id": 25,
+            "category": "fruits",
+            "name": "Dragonfruit",
+            "image": "dragonfruit.jpg"
+        },
+        {
+            "id": 26,
+            "category": "fruits",
+            "name": "Lemon",
+            "image": "lemon.jpg"
+        },
+        {
+            "id": 27,
+            "category": "fruits",
+            "name": "Cherry",
+            "image": "cherry.jpg"
+        },
+        {
+            "id": 28,
+            "category": "fruits",
+            "name": "Pineapple",
+            "image": "pineapple.jpg"
+        },
+        {
+            "id": 29,
+            "category": "fruits",
+            "name": "Watermelon",
+            "image": "watermelon.jpg"
+        },
+        {
+            "id": 30,
+            "category": "fruits",
+            "name": "Tomato",
+            "image": "tomato.jpg"
+        }
+    ]
+}
