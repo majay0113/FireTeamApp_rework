@@ -1,0 +1,13 @@
+{
+  "recipes": [
+    {
+      "name": "Simple Salad",
+      "ingredientIds": [
+        12,
+        11,
+        19
+      ],
+      "description": "A simlple salad\n\nSteps:\n1. Cut all ingredients into small pieces\n2. Combine in one bowl and enjoy!\n"
+    }
+  ]
+}

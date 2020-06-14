@@ -22,8 +22,19 @@ public class Ingredient {
         knownIngredients.put("fruits", new ArrayList<Ingredient>());
     }
 
+    public static Ingredient GetIngredientById(int id) {
+        for (ArrayList<Ingredient> ingredients : knownIngredients.values()) {
+            for (Ingredient ingredient : ingredients)
+                if (ingredient.id == id)
+                    return ingredient;
+        }
+
+        return null;
+    }
+
     public static void AddIngredient(String category, String imagePath, String name) {
         maxIndex++;
+        Log.i("ingredient", "adding ingredient with id " + maxIndex);
         Ingredient ingredient = new Ingredient(maxIndex, category, imagePath, name);
 
         AddIngredient(ingredient);
@@ -34,6 +45,8 @@ public class Ingredient {
         categoryList.add(ingredient);
         //knownIngredients.remove(ingredient.category);
         knownIngredients.put(ingredient.category, categoryList);
+        if (ingredient.id > maxIndex)
+            maxIndex = ingredient.id;
     }
 
     public int id;
@@ -48,5 +61,16 @@ public class Ingredient {
         this.category = category;
         this.name = name;
         this.imagePath = imagePath;
+    }
+
+    public String ToJsonString(){
+        String result = "{\n";
+        result += "\t\"id\": " + this.id + ",\n";
+        result += "\t\"category\": \"" + this.category + "\",\n";
+        result += "\t\"name\": \"" + this.name + "\",\n";
+        result += "\t\"image\": \"" + this.imagePath + "\"\n";
+        result += "},\n";
+
+        return result;
     }
 }

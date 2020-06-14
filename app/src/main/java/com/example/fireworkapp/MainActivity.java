@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements CartRecycleViewAd
             instance = this;
 
         Button fridgeButton = (Button) findViewById(R.id.open_fridge_button);
-        fridgeButton.setOnClickListener( new View.OnClickListener() {
+        fridgeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Handle transition to fridge
@@ -36,16 +37,17 @@ public class MainActivity extends AppCompatActivity implements CartRecycleViewAd
         });
 
         Button recipesButton = (Button) findViewById(R.id.open_recipes_button);
-        recipesButton.setOnClickListener( new View.OnClickListener() {
+        recipesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Handle transition to recipes
-
+                Intent recipeIntent = new Intent(MainActivity.this, RecipeActivity.class);
+                MainActivity.this.startActivity(recipeIntent);
             }
         });
 
         Button favRecipesButton = (Button) findViewById(R.id.open_favorite_recipes_button);
-        favRecipesButton.setOnClickListener( new View.OnClickListener() {
+        favRecipesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Handle transition to favorite recipes
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements CartRecycleViewAd
         super.onResume();
 
         if (database == null)
-                database = new Database(getApplicationContext(), "ingredients.json", "recipes.json");
+            database = new Database(getApplicationContext(), "ingredients.json", "recipes.json");
 
         RecyclerView recyclerView = findViewById(R.id.cart_list_view);
         adapter = new CartRecycleViewAdapter(this, Cart.selectedIngredients);
@@ -82,5 +84,11 @@ public class MainActivity extends AppCompatActivity implements CartRecycleViewAd
             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), ((LinearLayoutManager) recyclerView.getLayoutManager()).getOrientation());
             recyclerView.addItemDecoration(dividerItemDecoration);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        database.SaveData();
+        super.onDestroy();
     }
 }
