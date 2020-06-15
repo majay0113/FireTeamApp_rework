@@ -33,8 +33,8 @@ public class Database {
 
             InputStream is = am.open(ingredientsPath);
 
-            //if (file.exists())
-            //    is = context.openFileInput(ingredientsPath);
+            if (file.exists())
+               is = context.openFileInput(ingredientsPath);
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
             String jsonString = "";
@@ -78,8 +78,8 @@ public class Database {
 
             InputStream is = am.open(recipesPath);
 
-            //if (file.exists())
-            //    is = context.openFileInput(recipesPath);
+            if (file.exists())
+                is = context.openFileInput(recipesPath);
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
             String jsonString = "";
@@ -104,7 +104,7 @@ public class Database {
                 String description = item.getString("description");
                 boolean isFavorited = false;
                 try {
-                    isFavorited = item.getBoolean("isFavorited");
+                    isFavorited = item.getBoolean("isFavorite");
                 } catch (Exception e) {
 
                 }
@@ -121,6 +121,7 @@ public class Database {
 
     public void SaveData() {
         //Save ingredients
+        Log.i("database", context.getFilesDir().getAbsolutePath());
         try {
             File file = new File(context.getFilesDir(), ingredientsPath);
             if (file.exists())
@@ -128,16 +129,20 @@ public class Database {
 
             String ingredientContents = "{\n\t\"ingredients\": [\n";
 
-            for (ArrayList<Ingredient> ingredients : Ingredient.knownIngredients.values())
+            ArrayList<Ingredient> allIngredients = new ArrayList<>();
+            for (ArrayList<Ingredient> ingredients : Ingredient.knownIngredients.values()) {
                 for (Ingredient ingredient : ingredients)
-                    ingredientContents += "\t" + ingredient.ToJsonString();
+                    allIngredients.add(ingredient);
+            }
+
+            for (Ingredient ingredient : allIngredients)
+                ingredientContents += "\t" + ingredient.ToJsonString() +
+                        (allIngredients.indexOf(ingredient) == allIngredients.size() - 1 ? "\n" : ",\n");
 
             ingredientContents += "\t]\n}\n";
 
             FileOutputStream fos = context.openFileOutput(ingredientsPath, Context.MODE_PRIVATE);
             fos.write(ingredientContents.getBytes());
-
-            Log.i("database", "saving data: \n" + ingredientContents);
         } catch (Exception e) {
             Log.e("database", e.getMessage());
         }
@@ -151,7 +156,7 @@ public class Database {
             String recipeContents = "{\n\t\"recipes\": [\n";
 
             for (Recipe recipe : Recipe.knownRecipes)
-                recipeContents += "\t" + recipe.ToJsonString();
+                recipeContents += "\t" + recipe.ToJsonString() + (Recipe.knownRecipes.indexOf(recipe) == Recipe.knownRecipes.size() - 1 ? "\n" : ",\n");
 
             recipeContents += "\t]\n}\n";
 

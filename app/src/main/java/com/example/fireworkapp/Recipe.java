@@ -81,7 +81,7 @@ public class Recipe {
         return result;
     }
 
-    public boolean IsFavorited(){
+    public boolean IsFavorited() {
         return favoriteRecipes.contains(this);
     }
 
@@ -89,12 +89,19 @@ public class Recipe {
         String result = "{\n";
         result += "\"name\": \"" + this.name + "\",\n";
         result += "\"ingredientIds\": [\n";
-        for (int id : this.ingredientIds) {
-            result += "\t" + Integer.toString(id) + ",\n";
+        for (int i = 0; i < this.ingredientIds.length; i++) {
+            result += "\t" + Integer.toString(ingredientIds[i]) +
+                    (i == ingredientIds.length - 1 ? "\n" :",\n");
         }
-        result += "\"description\": \"" + this.description + "\"\n";
-        result += "\"isFavorite\": \"" + Boolean.toString(this.IsFavorited()) + "\"\n";
-        result += "},\n";
+        result += "],\n";
+
+        String[] splitDesc = this.description.split("\n");
+        result += "\"description\": \"";
+        for (String s : splitDesc)
+            result += s + "\\n";
+        result += "\",\n";
+        result += "\"isFavorite\": " + Boolean.toString(this.IsFavorited()) + "\n";
+        result += "}";
 
         return result;
     }

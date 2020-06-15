@@ -69,7 +69,7 @@ public class Ingredient {
         result += "\t\"category\": \"" + this.category + "\",\n";
         result += "\t\"name\": \"" + this.name + "\",\n";
         result += "\t\"image\": \"" + this.imagePath + "\"\n";
-        result += "},\n";
+        result += "}";
 
         return result;
     }
