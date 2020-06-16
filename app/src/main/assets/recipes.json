@@ -8,6 +8,26 @@
         19
       ],
       "description": "A simlple salad\n\nSteps:\n1. Cut all ingredients into small pieces\n2. Combine in one bowl and enjoy!\n"
+    },
+     {
+      "name": "Simple Salmon Chowder ",
+      "ingredientIds": [
+        12,
+        11,
+        19
+      ],
+      "description": "Simple Salmon Chowder\n\nSteps:\n1. Cut the salmon into pieces.\n2. Once the potatoes are tender, you’ll add milk, cream or coconut milk to the pot\n3.And then you will poach the salmon, right in the creamy broth,This will only take a couple of minutes before turning the heat off.\n4Flake apart the fish with a fork and adjust seasonings to your liking. Serve immediately."
+
+    },
+    {
+      "name": "Sweet 'n Sticky Apricot Chicken",
+      "ingredientIds": [
+        12,
+        11,
+        19
+      ],
+      "description": "Sweet 'n Sticky Apricot Chicken\n\nSteps:\n1. 2 lb. (900 g) bone-in chicken pieces (legs, thighs, wings),1/2 cup apricot jam.1/2 cup Heinz Chili Sauce,1 Tbsp. Heinz Distilled White Vinegar,5.3 cloves garlic, minced\n2.Bake 45 min. or until chicken is done (165°F)."
     }
+  ]
   ]
 }
