@@ -179,6 +179,19 @@
             "category": "fruits",
             "name": "Watermelon",
             "image": "watermelon.jpg"
+        },
+        {
+            "id": 30,
+            "category": "other",
+            "name": "sugar",
+            "image": "sugar.jpg"
+        },
+        {
+            "id": 31,
+            "category": "other",
+            "name": "mustard",
+            "image": "mustard.jpg"
         }
+
     ]
 }
