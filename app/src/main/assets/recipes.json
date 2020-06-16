@@ -8,6 +8,34 @@
         19
       ],
       "description": "A simlple salad\n\nSteps:\n1. Cut all ingredients into small pieces\n2. Combine in one bowl and enjoy!\n"
+    },
+     {
+      "name": "Simple Salmon Chowder ",
+      "ingredientIds": [
+        0,
+        10,
+        24
+      ],
+      "description": "Simple Salmon Chowder\n\nSteps:\n1. Cut the salmon into pieces.\n2. Once the potatoes are tender, you’ll add milk, cream or coconut milk to the pot\n3.And then you will poach the salmon, right in the creamy broth,This will only take a couple of minutes before turning the heat off.\n4Flake apart the fish with a fork and adjust seasonings to your liking. Serve immediately."
+
+    },
+    {
+      "name": "Sweet 'n Sticky Apricot Chicken",
+      "ingredientIds": [
+        5 ,
+        17,
+        19
+      ],
+      "description": "Sweet 'n Sticky Apricot Chicken\n\nSteps:\n1. 2 lb. (900 g) bone-in chicken pieces (legs, thighs, wings),1/2 cup apricot jam.1/2 cup Heinz Chili Sauce,1 Tbsp. Heinz Distilled White Vinegar,5.3 cloves garlic, minced\n2.Bake 45 min. or until chicken is done (165°F)."
+    },
+    {
+      "name": "Beef Pot Roast with Braised Vegetables",
+      "ingredientIds": [
+        1,
+        18,
+        19
+      ],
+      "description": "Beef Pot Roast with Braised Vegetables\n\nSteps:\n1. 2 tbsp (30 mL) fennel seeds, crushed\n 1 tsp (5 mL) EACH salt and pepper\n 3 lb (1.36 kg) Boneless Beef Pot Roast (e.g. Cross Rib, Blade or Top Blade)\n 3 tbsp (45 mL) vegetable oil\n 2 onions, chopped\n 4 carrots, diced\n 2 tbsp (30 mL) all-purpose flour\n 1 ½ cups (375 mL) beef stock\n 3 bay leaves\n2. 1. Combine crushed fennel seeds with 1/2 tsp (2 mL) each of the salt and pepper, rub all over roast. In Dutch oven or stockpot, heat 2 tbsp (30 mL) of the oil over medium-high heat; brown beef all over, turning with tongs, about 10 minutes. Transfer pot roast to slow-cooker; set aside. Reduce stove-top heat to medium. Add remaining oil to Dutch oven if necessary; cook onions, carrots and remaining salt and pepper, stirring, for 4 minutes or until just golden. Sprinkle with flour; cook, stirring, for 1 minute.\n\n2. Add beef stock and bay leaves to Dutch oven; bring to boil, stirring and scraping up brown bits from bottom of pot. Transfer vegetables, broth and bay leaves to slow-cooker. Cover and cook on LOW for 7 to 8 hours or until fork tender.\n\n3. Remove bay leaves and discard; skim fat from sauce if necessary. Carve roast across the grain and serve with sauce and braised vegetables.\n"
     }
   ]
 }
